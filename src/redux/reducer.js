@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { addContact, deleteContact } from './actions';
+import { addContact, deleteContact, setFilter } from './actions';
 import { nanoid } from 'nanoid';
 
 const contactsInitialState = [
@@ -23,4 +23,8 @@ export const contactsReducer = createReducer(contactsInitialState, {
 
 const filtersInitialState = '';
 
-export const filtersReducer = createReducer(filtersInitialState, {});
+export const filtersReducer = createReducer(filtersInitialState, {
+  [setFilter]: (state, action) => {
+    return action.payload;
+  },
+});
