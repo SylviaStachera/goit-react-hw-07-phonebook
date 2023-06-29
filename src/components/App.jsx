@@ -1,64 +1,64 @@
 import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
+// import ContactList from './ContactList/ContactList';
+// import Filter from './Filter/Filter';
 
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
 export const App = () => {
-  const [filter, setFilter] = useState('');
-  const [contacts, setContacts] = useState([]);
+  // const [filter, setFilter] = useState('');
+  // const [contacts, setContacts] = useState([]);
 
-  useEffect(() => {
-    const savedContacts = localStorage.getItem('contacts');
+  // useEffect(() => {
+  //   const savedContacts = localStorage.getItem('contacts');
 
-    if (savedContacts) {
-      const parsedContacts = JSON.parse(savedContacts);
-      setContacts(parsedContacts);
-    }
-  }, []);
+  //   if (savedContacts) {
+  //     const parsedContacts = JSON.parse(savedContacts);
+  //     setContacts(parsedContacts);
+  //   }
+  // }, []);
 
-  const addContact = newContact => {
-    const isExists = contacts.find(
-      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
-    );
+  // const addContact = newContact => {
+  //   const isExists = contacts.find(
+  //     contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+  //   );
 
-    if (isExists) {
-      return alert(`${isExists.name} is already in contacts.`);
-    }
+  //   if (isExists) {
+  //     return alert(`${isExists.name} is already in contacts.`);
+  //   }
 
-    const updatedContacts = [...contacts, newContact];
+  //   const updatedContacts = [...contacts, newContact];
 
-    setContacts(updatedContacts);
+  //   setContacts(updatedContacts);
 
-    localStorage.setItem('contacts', JSON.stringify(updatedContacts));
-  };
+  //   localStorage.setItem('contacts', JSON.stringify(updatedContacts));
+  // };
 
-  const getContacts = (contacts, filter) => {
-    const normalizeName = filter.toLowerCase();
+  // const getContacts = (contacts, filter) => {
+  //   const normalizeName = filter.toLowerCase();
 
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizeName)
-    );
-  };
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(normalizeName)
+  //   );
+  // };
 
-  const changeFilter = evt => {
-    setFilter(evt.currentTarget.value);
-  };
+  // const changeFilter = evt => {
+  //   setFilter(evt.currentTarget.value);
+  // };
 
-  const deleteContact = id => {
-    const updatedContacts = contacts.filter(contact => contact.id !== id);
-    setContacts(updatedContacts);
+  // const deleteContact = id => {
+  //   const updatedContacts = contacts.filter(contact => contact.id !== id);
+  //   setContacts(updatedContacts);
 
-    localStorage.setItem('contacts', JSON.stringify(updatedContacts));
-  };
+  //   localStorage.setItem('contacts', JSON.stringify(updatedContacts));
+  // };
 
   return (
     <div className="wraper">
       <h1>Phonebook</h1>
-      <ContactForm onSubmit={addContact} />
+      <ContactForm />
 
       <h2>Contacts</h2>
-      <Filter value={filter} onChangeFilter={changeFilter} />
+      {/* <Filter value={filter} onChangeFilter={changeFilter} />
       {contacts.length ? (
         <ContactList
           contacts={getContacts(contacts, filter)}
@@ -66,7 +66,7 @@ export const App = () => {
         />
       ) : (
         <p>No contact!</p>
-      )}
+      )} */}
     </div>
   );
 };
