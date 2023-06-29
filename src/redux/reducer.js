@@ -9,4 +9,4 @@ export const contactsReducer = (state = contactsInitialState, action) => {};
 
 const filtersInitialState = '';
 
-export const filtersReducer = (state = filtersReducer, action) => {};
+export const filtersReducer = (state = filtersInitialState, action) => {};
