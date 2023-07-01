@@ -14,6 +14,11 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'contacts/addContact':
+      return {
+        contacts: [...state.contacts, action.payload],
+        filter: { ...state.filter },
+      };
     case 'contacts/deleteContact':
       return {
         contacts: state.contacts.filter(
