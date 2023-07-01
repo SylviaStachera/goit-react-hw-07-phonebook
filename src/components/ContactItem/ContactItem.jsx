@@ -12,7 +12,7 @@ const ContactItem = ({ contact }) => {
       <span>: {contact.number}</span>{' '}
       <button
         className={css['btn-delete']}
-        onClick={() => dispatch(deleteContact(contact.id))}
+        onClick={() => dispatch(deleteContact({ id: contact.id }))}
       >
         Delete
       </button>
