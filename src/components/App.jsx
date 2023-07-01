@@ -1,7 +1,7 @@
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import ContactItem from './ContactItem/ContactItem';
-// import Filter from './Filter/Filter';
+import Filter from './Filter/Filter';
 
 // import { useState, useEffect } from 'react';
 
@@ -59,7 +59,7 @@ export const App = () => {
       <ContactForm />
 
       <h2>Contacts</h2>
-      {/* <Filter value={filter} onChangeFilter={changeFilter} /> */}
+      <Filter />
 
       <ContactList>
         <ContactItem />
