@@ -24,8 +24,7 @@ img {
 .wraper {
   margin-top: 15px;
   margin-left: 15px;
-  width: 400px;
+  width: 450px;
   display: flex;
   flex-direction: column;
-  /* background-color: aquamarine; */
 }
