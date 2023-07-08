@@ -1,7 +1,8 @@
 import { nanoid } from 'nanoid';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { fetchContacts, addContact } from 'redux/operations';
 
 import css from './ContactForm.module.css';
 
@@ -18,7 +19,7 @@ const ContactForm = () => {
     const existingContact = contacts.find(contact => contact.name === name);
     if (existingContact) {
       alert('Contact with this name already exists!');
-      return;
+      return evt.target.reset();
     }
 
     const newContact = { id: nanoid(), name, number };
@@ -27,6 +28,10 @@ const ContactForm = () => {
 
     evt.target.reset();
   };
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>

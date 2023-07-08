@@ -24,6 +24,10 @@ const ContactList = () => {
     <>
       {loading && <p>Loading...</p>}
 
+      {!filteredContacts?.length && !error && !loading && (
+        <p>Sorry! No contacts found.</p>
+      )}
+
       {error && <p>{error}</p>}
       <ul>
         {filteredContacts.map(contact => {
